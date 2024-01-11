@@ -1,0 +1,40 @@
+/* Add this CSS to your stylesheets or in the style tag of your component */
+
+
+
+.container {
+  background-color: #f0f0f0; /* Light background color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+  max-width: 600px; /* Adjust the max-width as needed */
+  margin: 0 auto; /* Set margin to auto to center the container horizontally */
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.form-label {
+  font-weight: bold;
+  color: #004080; /* Dark blue color for labels */
+}
+
+.form-control {
+  border: 1px solid #004080; /* Dark blue border for form controls */
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #004080; /* Dark blue button color */
+  border: 1px solid #004080;
+  border-radius: 5px;
+  color: #ffffff; /* White text for contrast */
+}
+
+.btn-primary:hover {
+  background-color: #002b5e; /* Darker blue on hover */
+  border: 1px solid #002b5e;
+}
+
+.text-muted {
+  color: #666; /* Gray color for muted text */
+}
+
