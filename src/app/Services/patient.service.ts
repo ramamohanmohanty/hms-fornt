@@ -21,4 +21,14 @@ export class PatientService {
     const url = this.baseUrl + '/alldata';
     return this.http.get<Patient[]>(url);
   }
+
+  updatePatient(patientId:number,patient: Patient): Observable<Patient> {
+    const url = this.baseUrl + '/update/' + patientId;
+    return this.http.put<Patient>(url, patient);
+  }
+
+  deletepatient(patientId: number): Observable<void> {
+    const url = this.baseUrl + '/delete/' + patientId;
+    return this.http.delete<void>(url);
+  }
 }

@@ -1,34 +1,87 @@
 
-  
-<div class="back">
-<div class="container mt-5 border border-2 p-4">
-  <form (ngSubmit)="savePatient()" #myForm="ngForm">
-    <div class="mb-3">
-      <label for="name" class="form-label">Name:</label>
-      <input type="text" class="form-control" id="name" [(ngModel)]="newPatient.name" name="name" required>
-      <small class="text-muted">Enter your Name</small>
-    </div>
-  
-    <div class="mb-3">
-      <label for="address" class="form-label">Address:</label>
-      <input type="text" class="form-control" id="address" [(ngModel)]="newPatient.address" name="address" required>
-      <small class="text-muted">Enter your address</small>
-    </div>
-  
-    <div class="mb-3">
-      <label for="email" class="form-label">Email:</label>
-      <input type="email" class="form-control" id="email" [(ngModel)]="newPatient.email" name="email" required>
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-  
-    <div class="mb-3">
-      <label for="mobile" class="form-label">Mobile Number:</label>
-      <input type="tel" class="form-control" id="mobile" [(ngModel)]="newPatient.mobile" name="mobile" pattern="[0-9]{10}" required>
-      <small class="text-muted">Please enter a 10-digit mobile number.</small>
-    </div>
-  
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  
+
+<div class="container-fluid">
+
+  <div class="text-end">
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      AddPatient
+    </button>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Mobile Number</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of patientList">
+        <td>{{ patient.name }}</td>
+        <td>{{ patient.address }}</td>
+        <td>{{ patient.email }}</td>
+        <td>{{ patient.mobile }}</td>
+        <td><i class="bi bi-pencil-square"data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="patientDetails(patient)"></i>
+        &nbsp;
+        &nbsp;
+        <i class="bi bi-trash" (click)="deletePatient(patient.patientId)"></i>
+      </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+  
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="back">
+          <div class="container mt-5 border border-2 p-4">
+            <form #myForm="ngForm">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="newPatient.name" name="name" required>
+                <small class="text-muted">Enter your Name</small>
+              </div>
+            
+              <div class="mb-3">
+                <label for="address" class="form-label">Address:</label>
+                <input type="text" class="form-control" id="address" [(ngModel)]="newPatient.address" name="address" required>
+                <small class="text-muted">Enter your address</small>
+              </div>
+            
+              <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" [(ngModel)]="newPatient.email" name="email" required>
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+            
+              <div class="mb-3">
+                <label for="mobile" class="form-label">Mobile Number:</label>
+                <input type="tel" class="form-control" id="mobile" [(ngModel)]="newPatient.mobile" name="mobile" pattern="[0-9]{10}" required>
+                <small class="text-muted">Please enter a 10-digit mobile number.</small>
+              </div>
+            </form>
+            
+          </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       <div>
+        <button type="button" class="btn btn-primary"(click)="savePatient()">Save</button>
+        <button type="button" class="btn btn-primary"(click)=" updatePatientDetail()">Update</button>
+       </div>
+      </div>
+    </div>
+  </div>
 </div>

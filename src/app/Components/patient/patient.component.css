@@ -38,3 +38,27 @@
   color: #666; /* Gray color for muted text */
 }
 
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.even:hover {
+  background-color: #f5f5f5;
+}
+
+.odd:hover {
+  background-color: #e0e0e0;
+}
+
